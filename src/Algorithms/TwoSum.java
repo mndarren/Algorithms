@@ -63,10 +63,10 @@ public class TwoSum {
 	}
 	
 	/**
-	 * @apiNote HashTable: Time - O(N), Space - O(N)
+	 * @apiNote HashTable: Time - O(N), Space - O(N); Mutiple pairs
 	 * @param numbers
 	 * @param target
-	 * @return the index positions
+	 * @return the values
 	 */
 	public List<List<Integer>> twoSumMutiplePairs(int[] numbers, int target) {
 		List<List<Integer>> listSet = new ArrayList<List<Integer>>();
@@ -76,7 +76,16 @@ public class TwoSum {
 		Map<Integer, Integer> map = new HashMap<Integer,Integer>();
 		for (int i = 0; i < n; i++) {
 			int key1 = numbers[i], key2 = target - numbers[i];
-			
+			if (map.containsKey(key2) && map.get(key2) > 0) {
+				List<Integer> list = new ArrayList<Integer>();
+				if (key1 < key2) list = Arrays.asList(key1, key2);
+				else             list = Arrays.asList(key2, key1);
+				if (!listSet.contains(list)) listSet.add(list);
+				map.put(key2, map.get(key2) - 1);
+			} else {
+				if (!map.containsKey(key1)) map.put(key1, 1);
+				else 						map.put(key1, map.get(key1) + 1);
+			}
 		}
 		
 	    if (listSet.size() > 0) return listSet;

@@ -4,7 +4,7 @@ echo Done to copy paste job!
 git status
 git add .
 echo Done to stage changes!
-git commit -m "Updated Algorithms project"
+git commit -m "Updated Algorithms project - BST finished:"
 echo Done to commit code!
 git push
 echo Done to push code!

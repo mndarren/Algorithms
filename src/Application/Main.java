@@ -30,6 +30,20 @@ public class Main {
 		BSTNode node = lCA.lowestCommonAncestor(bST.getRoot(), new BSTNode(0), new BSTNode(3));
 		
 		System.out.println("The LCA = " + node.toString());
+		int lowest = bST.findSmallestValue();
+		System.out.println("The lowest value = " + lowest);
+		bST.delete(lowest);
+		int lowestNew = bST.findSmallestValue();
+		System.out.println("The lowest value after delete = " + lowestNew);
+		bST.add(lowest);
+		lowest = bST.findSmallestValue();
+		System.out.println("The lowest value after add it back = " + lowest);
+		System.out.println("Traverse In Order: ");
+		bST.queryInOrder();
+		System.out.println("\nTraverse Pre Order: ");
+		bST.queryPreOrder();
+		System.out.println("\nTraverse Post Order: ");
+		bST.queryPostOrder();
 	}
 	
 	/**

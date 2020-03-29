@@ -8,7 +8,89 @@ public class BinarySearchTree {
 		return containRecursiveNode(root, value);
 	}
 	
-	// Recursively check if containing Node
+	public void add(int value) {
+		setRoot(addRecursive(getRoot(), value));
+	}
+	
+	public void delete(int value) {
+		root = deleteRecursive(root, value);
+	}
+	
+	public int findLargestValue() {
+		return findLargestValue(root);
+	}
+
+	public int findSmallestValue() {
+		return findSmallestValue(root);
+	}
+	
+	public void queryInOrder() {
+		traverseInOrder(root);
+	}
+	
+	// In Order: left, current, right
+	private void traverseInOrder (BSTNode current) {
+		if (current != null) {
+			traverseInOrder(current.getLeft());
+			System.out.print(" " + current.getVal());
+			traverseInOrder(current.getRight());
+		}
+	}
+	
+	public void queryPreOrder() {
+		traversePreOrder(root);
+	}
+	
+	// In Order: current, left, right
+	private void traversePreOrder (BSTNode current) {
+		if (current != null) {
+			System.out.print(" " + current.getVal());
+			traversePreOrder(current.getLeft());
+			traversePreOrder(current.getRight());
+		}
+	}
+	
+	public void queryPostOrder() {
+		traversePostOrder(root);
+	}
+	
+	// In Order: left, right, current
+	private void traversePostOrder (BSTNode current) {
+		if (current != null) {
+			traversePostOrder(current.getLeft());
+			traversePostOrder(current.getRight());
+			System.out.print(" " + current.getVal());
+		}
+	}
+	
+	// Recursive find largest value
+	private int findLargestValue(BSTNode current) {
+		return current.getRight() == null ? current.getVal() : findSmallestValue(current.getRight());
+	}
+		
+	// Recursive find smallest value
+	private int findSmallestValue(BSTNode current) {
+		return current.getLeft() == null ? current.getVal() : findSmallestValue(current.getLeft());
+	}
+
+	// Recursive delete
+	private BSTNode deleteRecursive(BSTNode current, int value) {
+		if (current == null) return null;
+		if (value == current.getVal()) {
+			if (current.getLeft() == null && current.getRight() == null) return null;
+			if (current.getLeft() == null) return current.getRight();
+			if (current.getRight() == null) return current.getLeft();
+		}
+		if (value < current.getVal()) {
+			current.setLeft(deleteRecursive(current.getLeft(), value));
+			return current;
+		}
+		// value > current.getVal()
+		current.setRight(deleteRecursive(current.getRight(), value));
+		return current;
+	}
+
+	// Recursively check if containing a Node
 	private Boolean containRecursiveNode(BSTNode current, int value) {
 		if (current == null) return false;
 		if (current.getVal() == value) return true;
@@ -16,10 +98,6 @@ public class BinarySearchTree {
 		return current.getVal() < value 
 				? containRecursiveNode(current.getLeft(), value) 
 				: containRecursiveNode(current.getRight(), value);
-	}
-
-	public void add(int value) {
-		setRoot(addRecursive(getRoot(), value));
 	}
 
 	// Recursively add Node in the tree

@@ -22,14 +22,15 @@ public class Main {
 	private static void testLCAofBST() {
 		BinarySearchTree bST = new BinarySearchTree();
 		int[] numbers = new int[] {6, 2, 8, 0, 4, 7, 9, 3, 5};
+		// create a Binary search tree
 		for (int i = 0; i < numbers.length; i++) {
 			bST.add(numbers[i]);
 		}
 		
 		LowestCommonAncestorBST lCA = new LowestCommonAncestorBST();
-		BSTNode node = lCA.lowestCommonAncestor(bST.getRoot(), new BSTNode(0), new BSTNode(3));
-		
+		BSTNode node = lCA.lowestCommonAncestorTD(bST.getRoot(), new BSTNode(0), new BSTNode(3));
 		System.out.println("The LCA = " + node.toString());
+		
 		int lowest = bST.findSmallestValue();
 		System.out.println("The lowest value = " + lowest);
 		bST.delete(lowest);

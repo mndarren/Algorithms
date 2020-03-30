@@ -28,6 +28,14 @@ public class BinarySearchTree {
 		traverseInOrder(root);
 	}
 	
+	public void queryPostOrder() {
+		traversePostOrder(root);
+	}
+	
+	public void queryPreOrder() {
+		traversePreOrder(root);
+	}
+	
 	// In Order: left, current, right
 	private void traverseInOrder (BSTNode current) {
 		if (current != null) {
@@ -37,10 +45,6 @@ public class BinarySearchTree {
 		}
 	}
 	
-	public void queryPreOrder() {
-		traversePreOrder(root);
-	}
-	
 	// In Order: current, left, right
 	private void traversePreOrder (BSTNode current) {
 		if (current != null) {
@@ -48,10 +52,6 @@ public class BinarySearchTree {
 			traversePreOrder(current.getLeft());
 			traversePreOrder(current.getRight());
 		}
-	}
-	
-	public void queryPostOrder() {
-		traversePostOrder(root);
 	}
 	
 	// In Order: left, right, current

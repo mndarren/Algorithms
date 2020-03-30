@@ -10,14 +10,21 @@ import DataStructures.BSTNode;
  *
  */
 public class LowestCommonAncestorBST {
-	
-	public BSTNode lowestCommonAncestor(BSTNode root, BSTNode p, BSTNode q) {
+	// top down approach: Time - O(logN), Space - O(logN)
+	public BSTNode lowestCommonAncestorTD(BSTNode root, BSTNode p, BSTNode q) {
 		if      (root.getVal() < p.getVal() && root.getVal() < q.getVal())  
-			return lowestCommonAncestor(root.getRight(), p, q);
+			return lowestCommonAncestorTD(root.getRight(), p, q);
 	    else if (root.getVal() > p.getVal() && root.getVal() > q.getVal())  
-	    	return lowestCommonAncestor(root.getLeft(), p, q);
+	    	return lowestCommonAncestorTD(root.getLeft(), p, q);
 	    else                                            
 	    	return root;
 	}
 
+	// Bottom up approach: Time - O(N), Space - O(N) Not working
+	public BSTNode lowestCommonAncestorBU(BSTNode root, BSTNode p, BSTNode q) {
+		if (root == null || root == p || root == q) return root;
+		BSTNode left = lowestCommonAncestorBU(root.getLeft(), p, q);
+		BSTNode right = lowestCommonAncestorBU(root.getRight(), p, q);
+		return left == null ? right : (right == null ? left : root);
+	}
 }

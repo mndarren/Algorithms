@@ -1,5 +1,12 @@
 package DataStructures;
 
+/**
+ * 
+ * @apiSpec BFS = Breadth First Search for Queue, DFS = Depth First Search for Stack
+ * @author Darren Zhao Xie
+ * @date Mar 30, 2020 Created
+ *
+ */
 public class BSTNode {
 	private int val;
 	private BSTNode left;

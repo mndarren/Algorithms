@@ -16,7 +16,7 @@ public class ListNode {
 	public void setNext(ListNode next) {
 		this.next = next;
 	}
-	ListNode(int x) {
+	public ListNode(int x) {
 		val = x;
 		next = null;
 	}

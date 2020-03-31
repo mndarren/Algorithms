@@ -2,10 +2,12 @@ package Application;
 
 import java.util.List;
 
+import Algorithms.CheckPalindrome;
 import Algorithms.LowestCommonAncestorBST;
 import Algorithms.TwoSum;
 import DataStructures.BSTNode;
 import DataStructures.BinarySearchTree;
+import DataStructures.LinkedList;
 
 public class Main {
 
@@ -14,6 +16,25 @@ public class Main {
 		testTwoSum();
 		// Test LCA of BST
 		testLCAofBST();
+		// Test Palindrome
+		testPalindrome();
+	}
+	
+	/**
+	 * Test Palindrome
+	 */
+	private static void testPalindrome() {
+		LinkedList ll = new LinkedList();
+		int[] numbers = new int[] {1, 3, 5, 7, 8, 7, 5, 3, 1};
+		for (int i = 0; i < numbers.length; i++) {
+			ll.add(numbers[i]);
+		}
+		ll.traverseItems();
+		
+		CheckPalindrome cp = new CheckPalindrome();
+		Boolean isPalindrome = cp.isPalindrome(ll.getHead());
+		System.out.println("\nThe list isPalindrome = " + (isPalindrome ? "True\n": "False\n"));
+		ll.traverseItems();
 	}
 	
 	/**
@@ -45,6 +66,7 @@ public class Main {
 		bST.queryPreOrder();
 		System.out.println("\nTraverse Post Order: ");
 		bST.queryPostOrder();
+		System.out.println("\n");
 	}
 	
 	/**

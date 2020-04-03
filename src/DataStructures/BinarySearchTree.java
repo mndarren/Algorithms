@@ -45,7 +45,7 @@ public class BinarySearchTree {
 		}
 	}
 	
-	// In Order: current, left, right
+	// Pre Order: current, left, right
 	private void traversePreOrder (BSTNode current) {
 		if (current != null) {
 			System.out.print(" " + current.getVal());
@@ -54,7 +54,7 @@ public class BinarySearchTree {
 		}
 	}
 	
-	// In Order: left, right, current
+	// Post Order: left, right, current
 	private void traversePostOrder (BSTNode current) {
 		if (current != null) {
 			traversePostOrder(current.getLeft());

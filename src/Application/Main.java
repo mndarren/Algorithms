@@ -44,7 +44,23 @@ public class Main {
 			a[i] = orig[i];
 		}
 		sorting.insertionSort(a);
-		System.out.println("\nThe result of Bubble Sorting = ");
+		System.out.println("\nThe result of Insertion Sorting = ");
+		printArray(a);
+		
+		// Test Insertion sort
+		for (int i=0; i<a.length; i++) {
+			a[i] = orig[i];
+		}
+		sorting.selectionSort(a);
+		System.out.println("\nThe result of Selection Sorting = ");
+		printArray(a);
+		
+		// Test Insertion sort
+		for (int i=0; i<a.length; i++) {
+			a[i] = orig[i];
+		}
+		sorting.heapSort(a);
+		System.out.println("\nThe result of Heap Sorting = ");
 		printArray(a);
 	}
 	

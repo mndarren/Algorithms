@@ -4,6 +4,7 @@ import java.util.List;
 
 import Algorithms.CheckPalindrome;
 import Algorithms.LowestCommonAncestorBST;
+import Algorithms.SortingAlgorithms;
 import Algorithms.TwoSum;
 import DataStructures.BSTNode;
 import DataStructures.BinarySearchTree;
@@ -18,8 +19,42 @@ public class Main {
 		testLCAofBST();
 		// Test Palindrome
 		testPalindrome();
+		// Test Sorting
+		testSorting();
 	}
 	
+	/**
+	 * Test Sorting
+	 */
+	private static void testSorting() {
+		int[] orig = new int[] {89, 2, 56, 33, 67, 71, 99, 27, 44};
+		int[] a = new int[orig.length];
+		SortingAlgorithms sorting = new SortingAlgorithms();
+		
+		// Test Bubble sort
+		for (int i=0; i<a.length; i++) {
+			a[i] = orig[i];
+		}
+		sorting.bubbleSort(a);
+		System.out.println("\nThe result of Bubble Sorting = ");
+		printArray(a);
+		
+		// Test Insertion sort
+		for (int i=0; i<a.length; i++) {
+			a[i] = orig[i];
+		}
+		sorting.insertionSort(a);
+		System.out.println("\nThe result of Bubble Sorting = ");
+		printArray(a);
+	}
+	
+	private static void printArray(int[] arr) {
+		for (int i = 0; i <arr.length; i++) {
+			   System.out.print(arr[i]+" ");
+		}
+		System.out.println();
+	}
+
 	/**
 	 * Test Palindrome
 	 */

@@ -3,6 +3,7 @@ package Application;
 import java.util.List;
 
 import Algorithms.CheckPalindrome;
+import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
 import Algorithms.SortingAlgorithms;
 import Algorithms.TwoSum;
@@ -21,6 +22,15 @@ public class Main {
 		testPalindrome();
 		// Test Sorting
 		testSorting();
+		//Test Roman
+		testRoman();
+	}
+	
+	private static void testRoman() {
+		int a = 3874;
+		IntToRoman itr = new IntToRoman();
+		String roman = itr.intToRoman(a);
+		System.out.println("The Roman of " + a + " is " + roman);
 	}
 	
 	/**
@@ -86,6 +96,27 @@ public class Main {
 		Boolean isPalindrome = cp.isPalindrome(ll.getHead());
 		System.out.println("\nThe list isPalindrome = " + (isPalindrome ? "True\n": "False\n"));
 		ll.traverseItems();
+		
+		// Test integer is a Palindrome
+		int x = 123454321;
+		int y = 1234543210;
+		Boolean isP = cp.isPalintrome(x);
+		System.out.println("\nThe integer X isPalindrome = " + (isP ? "True\n": "False\n"));
+		isP = cp.isPalintrome(y);
+		System.out.println("\nThe integer Y isPalindrome = " + (isP ? "True\n": "False\n"));
+		
+		// Test String is a Palindrome
+		String s1 = "asd ff,ds a";
+		String s2 = "asdfhk ,ll";
+		isP = cp.isPalintrome(s1);
+		System.out.println("\nThe integer S1 isPalindrome = " + (isP ? "True\n": "False\n"));
+		isP = cp.isPalintrome(s2);
+		System.out.println("\nThe integer S2 isPalindrome = " + (isP ? "True\n": "False\n"));
+		
+		// Test finding longest substring Palindrome
+		String s3 = "uuiasdffdsa1234321";
+		String longest = cp.longestPalindrome(s3);
+		System.out.println("The longest Palindrome = " + longest);
 	}
 	
 	/**

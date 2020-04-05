@@ -31,6 +31,10 @@ public class Main {
 		IntToRoman itr = new IntToRoman();
 		String roman = itr.intToRoman(a);
 		System.out.println("The Roman of " + a + " is " + roman);
+		
+		// Test Roman to int
+		int n = itr.romanToInt(roman);
+		System.out.println("The Integer of " + roman + " is " + n);
 	}
 	
 	/**

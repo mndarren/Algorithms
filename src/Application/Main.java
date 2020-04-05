@@ -5,6 +5,7 @@ import java.util.List;
 import Algorithms.CheckPalindrome;
 import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
+import Algorithms.RemoveNthFromEnd;
 import Algorithms.SortingAlgorithms;
 import Algorithms.TwoSum;
 import DataStructures.BSTNode;
@@ -24,8 +25,36 @@ public class Main {
 		testSorting();
 		//Test Roman
 		testRoman();
+		// Test Remove Nth from end
+		testRemoveNthFromEnd();
 	}
 	
+	private static void testRemoveNthFromEnd() {
+		// Create List for test
+		LinkedList ll = new LinkedList();
+		int[] numbers = new int[] {1, 3, 5, 7, 8, 7, 5, 3, 1};
+		for (int i = 0; i < numbers.length; i++) {
+			ll.add(numbers[i]);
+		}
+		ll.traverseItems();
+		
+		// Test remove Nth from end
+		RemoveNthFromEnd removeNth = new RemoveNthFromEnd();
+		removeNth.removeNthFromEnd(ll.getHead(), 9);
+		System.out.println();
+		ll.traverseItems();
+		removeNth.removeNthFromEnd(ll.getHead(), 5);
+		System.out.println();
+		ll.traverseItems();
+		removeNth.removeNthFromEnd(ll.getHead(), 1);
+		System.out.println();
+		ll.traverseItems();
+		removeNth.removeNthFromEnd(ll.getHead(), 0);
+		System.out.println();
+		ll.traverseItems();
+	}
+	
+	// Test Roman to int convertion
 	private static void testRoman() {
 		int a = 3874;
 		IntToRoman itr = new IntToRoman();
@@ -77,7 +106,7 @@ public class Main {
 		System.out.println("\nThe result of Heap Sorting = ");
 		printArray(a);
 	}
-	
+	// Tool - to print out array elements
 	private static void printArray(int[] arr) {
 		for (int i = 0; i <arr.length; i++) {
 			   System.out.print(arr[i]+" ");

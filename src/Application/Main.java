@@ -54,7 +54,7 @@ public class Main {
 		}
 		
 		AmazonAssession aa = new AmazonAssession();
-		int parks = aa.parksNeeded(4, 5, grid);
+		int parks = aa.parksNeeded2(4, 5, grid);
 		System.out.println("We need to build " + parks + " Parks.");
 	}
 	

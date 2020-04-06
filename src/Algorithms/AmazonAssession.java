@@ -48,4 +48,21 @@ public class AmazonAssession {
 		return numParks;
 	}
 
+	// Directly use grid
+	public int parksNeeded2(int rows, int columns, ArrayList<ArrayList<Integer>> grid) {
+		int numParks = 0;
+		for(int i=0; i<rows; i++) {
+			for(int j=0; j<columns; j++) {
+				if(grid.get(i).get(j) == 1) {
+					if((j-1 < 0 || (j-1 >= 0 && grid.get(i).get(j-1) == 1))  &&
+					   (j+1 > columns-1 || (j+1 <= columns-1 && grid.get(i).get(j+1) == 1))  &&
+					   (i-1 < 0 || (i-1 >= 0 && grid.get(i-1).get(j) == 1))  &&
+					   (i+1 > rows-1 || (i+1 <= rows-1 && grid.get(i+1).get(j) == 1))) {
+						numParks++;
+					}
+				}
+			}
+		}
+		return numParks;
+	}
 }

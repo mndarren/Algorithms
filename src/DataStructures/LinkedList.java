@@ -3,6 +3,8 @@ package DataStructures;
 public class LinkedList {
 
 	private ListNode head;
+	
+	// Add a value
 	public void add(int val) {
 		if (getHead() == null) {
 			setHead(new ListNode(val));
@@ -12,6 +14,25 @@ public class LinkedList {
 		ListNode temp = getHead();
 		while (temp.getNext() != null) temp = temp.getNext();
 		temp.setNext(new ListNode(val));
+	}
+	
+	// Remove a value
+	public void remove(int val) {
+		ListNode tmp = head, prev = head;
+		int gap = 1;
+		while(tmp.getNext() != null && tmp.getVal() != val) {
+			tmp = tmp.getNext();
+			if(gap > 0) {
+				gap--;
+			} else {
+				prev = prev.getNext();
+			}
+		}
+		if(gap > 0) {
+			setHead(head.getNext());
+		} else {
+			prev.setNext(prev.getNext().getNext());
+		}
 	}
 	
 	// iteratively reverse a List

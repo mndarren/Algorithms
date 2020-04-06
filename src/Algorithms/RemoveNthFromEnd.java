@@ -32,7 +32,7 @@ public class RemoveNthFromEnd {
 		}
 		
 		if(gap == 0) {
-			head.setNext(head.getNext());
+			return head.getNext();
 		} else {
 			prev.setNext(prev.getNext().getNext());
 		}

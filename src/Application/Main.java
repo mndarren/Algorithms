@@ -1,7 +1,10 @@
 package Application;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import Algorithms.AmazonAssession;
 import Algorithms.CheckPalindrome;
 import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
@@ -11,6 +14,7 @@ import Algorithms.TwoSum;
 import DataStructures.BSTNode;
 import DataStructures.BinarySearchTree;
 import DataStructures.LinkedList;
+import DataStructures.MatrixNet;
 
 public class Main {
 
@@ -27,8 +31,34 @@ public class Main {
 		testRoman();
 		// Test Remove Nth from end
 		testRemoveNthFromEnd();
+		// Test Matrix Net
+		testMatrixNet();
 	}
 	
+	// Test Matrix Net
+	private static void testMatrixNet() {
+		ArrayList<ArrayList<Integer>> grid = new ArrayList<ArrayList<Integer>>();
+		
+		grid.add(0, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+		grid.add(1, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+		grid.add(2, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+		grid.add(3, new ArrayList<Integer>(Arrays.asList(1, 1, 1, 1, 1)));
+		
+		MatrixNet matrix = new MatrixNet();
+		System.out.println("Original matrix: ");
+		for(ArrayList<Integer> list : grid) {
+			for(Integer i : list) {
+				System.out.print(" " + i.intValue());
+			}
+			System.out.println();
+		}
+		
+		AmazonAssession aa = new AmazonAssession();
+		int parks = aa.parksNeeded(4, 5, grid);
+		System.out.println("We need to build " + parks + " Parks.");
+	}
+	
+	// Test Remove Nth From End
 	private static void testRemoveNthFromEnd() {
 		// Create List for test
 		LinkedList ll = new LinkedList();
@@ -40,18 +70,22 @@ public class Main {
 		
 		// Test remove Nth from end
 		RemoveNthFromEnd removeNth = new RemoveNthFromEnd();
-		removeNth.removeNthFromEnd(ll.getHead(), 9);
+		ll.setHead(removeNth.removeNthFromEnd(ll.getHead(), 9));
 		System.out.println();
 		ll.traverseItems();
-		removeNth.removeNthFromEnd(ll.getHead(), 5);
+		ll.setHead(removeNth.removeNthFromEnd(ll.getHead(), 5));
 		System.out.println();
 		ll.traverseItems();
-		removeNth.removeNthFromEnd(ll.getHead(), 1);
+		ll.setHead(removeNth.removeNthFromEnd(ll.getHead(), 1));
 		System.out.println();
 		ll.traverseItems();
-		removeNth.removeNthFromEnd(ll.getHead(), 0);
+		ll.setHead(removeNth.removeNthFromEnd(ll.getHead(), 0));
 		System.out.println();
 		ll.traverseItems();
+		ll.remove(7);
+		System.out.println();
+		ll.traverseItems();
+		System.out.println();
 	}
 	
 	// Test Roman to int convertion

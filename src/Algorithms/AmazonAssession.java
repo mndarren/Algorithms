@@ -18,11 +18,12 @@ import DataStructures.MatrixNet.MatrixNode;
  */
 public class AmazonAssession {
     /**
-     * 
+     * MatrixNet approach is not necessary, but it's a good try. Time O(MN), Space O(MN)
+     * only the block that is natural and its related block are natural can be built park.
      * @param rows
      * @param columns
      * @param grid
-     * @return int
+     * @return int - the number of park can be built
      */
     public int parksNeeded(int rows, int columns, ArrayList<ArrayList<Integer>> grid) {
         int numParks = 0;
@@ -48,7 +49,13 @@ public class AmazonAssession {
         return numParks;
     }
 
-    // Directly use grid
+    /**
+     * Actually Directly use grid to do the check makes thing easier: Time O(MN), Space O(1)
+     * @param rows
+     * @param columns
+     * @param grid
+     * @return
+     */
     public int parksNeeded2(int rows, int columns, ArrayList<ArrayList<Integer>> grid) {
         int numParks = 0;
         for (int i = 0; i < rows; i++) {
@@ -64,5 +71,16 @@ public class AmazonAssession {
             }
         }
         return numParks;
+    }
+    
+    /**
+     * 
+     * @param n - the number of nodes in graph
+     * @param grid - links represented by 1 or 0
+     * @return int[] - the primary nodes without which the whole tree will be broken
+     */
+    public int[] findCoreNodes(int n, List<List<Integer>> grid) {
+        
+        return null;
     }
 }

@@ -3,7 +3,7 @@ package DataStructures;
 public class ListNode {
 
 	private int val;
-	private ListNode next;
+	public ListNode next;
 	public int getVal() {
 		return val;
 	}

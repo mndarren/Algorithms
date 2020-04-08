@@ -10,6 +10,7 @@ import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
 import Algorithms.RemoveNthFromEnd;
 import Algorithms.SortingAlgorithms;
+import Algorithms.SwapNodesPairs;
 import Algorithms.TwoSum;
 import DataStructures.BSTNode;
 import DataStructures.BinarySearchTree;
@@ -33,6 +34,36 @@ public class Main {
 		testRemoveNthFromEnd();
 		// Test Matrix Net
 		testMatrixNet();
+		// Test swap pairs
+		testSwapPairs();
+	}
+	
+	//Test find core nodes
+	private static void testFindCoreNodes() {
+	    ArrayList<ArrayList<Integer>> grid = new ArrayList<ArrayList<Integer>>();
+        
+        grid.add(0, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+        grid.add(1, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+        grid.add(2, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
+        grid.add(3, new ArrayList<Integer>(Arrays.asList(1, 1, 1, 1, 1)));
+        
+        
+	}
+	
+	// Test swap pairs
+	private static void testSwapPairs() {
+	    // Create List for test
+        LinkedList ll = new LinkedList();
+        int[] numbers = new int[] {1, 3, 5, 7, 8, 7, 5, 3, 1};
+        for (int i = 0; i < numbers.length; i++) {
+            ll.add(numbers[i]);
+        }
+        System.out.println("Before swap pairs: ");
+        ll.traverseItems();
+        
+        ll.setHead(new SwapNodesPairs().swapPairs(ll.getHead()));
+        System.out.println("After swap pairs: ");
+        ll.traverseItems();
 	}
 	
 	// Test Matrix Net

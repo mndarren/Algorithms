@@ -1,7 +1,10 @@
 package Algorithms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import DataStructures.MatrixNet;
 import DataStructures.MatrixNet.MatrixNode;
@@ -79,8 +82,48 @@ public class AmazonAssession {
      * @param grid - links represented by 1 or 0
      * @return int[] - the primary nodes without which the whole tree will be broken
      */
-    public int[] findCoreNodes(int n, List<List<Integer>> grid) {
+    public ArrayList<Integer> findCoreNodes(int n, ArrayList<ArrayList<Integer>> grid) {
+        ArrayList<Integer> coreNodes = new ArrayList<Integer>();
+        ArrayList<HashMap> linksList = new ArrayList<HashMap>();
+        // add links for each node
+        for(int i=0; i<n; i++) {
+            HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+            for(int j=0; j<n; j++) {
+                if(grid.get(i).get(j) == 1) {
+                    map.put(j, 1);
+                }
+            }
+            linksList.add(map);
+        }
         
-        return null;
+        //Find the core nodes
+        for(int i=0; i<n; i++) {
+            ArrayList<Integer> linkedNodes = new ArrayList<Integer>();
+            int start = i==0 ? i+1 : i-1;
+            collectLinkedNode(i, start, linksList, linkedNodes);
+            System.out.println("Test i = "+i + " linkedNodes = "+linkedNodes.toString());
+            if(linkedNodes.size() < n-1) {
+                coreNodes.add(i+1);
+            }
+        }
+        return coreNodes;
+    }
+
+    // Tool: recursively collect linked nodes
+    private void collectLinkedNode(int i, int start, ArrayList<HashMap> linksList, ArrayList<Integer> linkedNodes) {
+        linkedNodes.add(start);
+        Set<Integer> keySet = linksList.get(start).keySet();
+        int count = 0;
+        for(Integer n : keySet) {
+            if(n == i || linkedNodes.contains(n)) {
+                count++;
+                // Base case: once all items in the keySet are contained in linkedNodes
+                if(count == keySet.size()) return;
+                continue;
+            } else {
+                collectLinkedNode(i, n, linksList, linkedNodes);
+            }
+        }
+        return;
     }
 }

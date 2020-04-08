@@ -12,24 +12,25 @@ import DataStructures.ListNode;
 public class SwapNodesPairs {
     
     /**
-     * Time O(N), Space O(1)
+     * Time O(N), Space O(1) [pointer vs object]
      * @param head - linked list first node
      * @return head with modified list
      */
     public ListNode swapPairs(ListNode head) {
         ListNode dummy = new ListNode(-1);
-        dummy.next = head;
+        dummy.setNext(head);
         
-        ListNode prev = dummy, curr = dummy;
-        while(curr != null && curr.next != null) {
-            ListNode temp = curr.next.next;
-            curr.next.next = prev.next;
-            prev.next = temp;
+        ListNode prev = dummy, curr = head;
+        while(curr != null && curr.getNext() != null) {
+            ListNode temp = curr.getNext().getNext();
+            curr.getNext().setNext(prev.getNext());
+            prev.setNext(curr.getNext());
+            curr.setNext(temp);
             
             prev = curr;
-            curr = curr.next;
+            curr = curr.getNext();
         }
-        return head;
+        return dummy.getNext();
     }
 
 }

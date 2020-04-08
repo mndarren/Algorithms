@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * This class is designed for Amazon assessment problem, but it's not necessary. 
+ * However, it's still good for a new Data Structure.
  * @apiSpec Linked Matrix matching 2 D Array
  * @author Darren Zhao Xie
  * @date Apr 5, 2020 Created

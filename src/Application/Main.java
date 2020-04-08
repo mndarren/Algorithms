@@ -36,17 +36,28 @@ public class Main {
 		testMatrixNet();
 		// Test swap pairs
 		testSwapPairs();
+		// Test Find Core Nodes from matrix
+		testFindCoreNodes();
 	}
 	
 	//Test find core nodes
 	private static void testFindCoreNodes() {
 	    ArrayList<ArrayList<Integer>> grid = new ArrayList<ArrayList<Integer>>();
         
-        grid.add(0, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
-        grid.add(1, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
-        grid.add(2, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
-        grid.add(3, new ArrayList<Integer>(Arrays.asList(1, 1, 1, 1, 1)));
+        grid.add(0, new ArrayList<Integer>(Arrays.asList(0, 1, 1, 0, 0, 0, 0)));
+        grid.add(1, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 0, 0, 0)));
+        grid.add(2, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 0, 1, 0)));
+        grid.add(3, new ArrayList<Integer>(Arrays.asList(0, 1, 1, 0, 1, 0, 0)));
+        grid.add(4, new ArrayList<Integer>(Arrays.asList(0, 0, 0, 1, 0, 0, 0)));
+        grid.add(5, new ArrayList<Integer>(Arrays.asList(0, 0, 1, 0, 0, 0, 1)));
+        grid.add(6, new ArrayList<Integer>(Arrays.asList(0, 0, 0, 0, 0, 1, 0)));
         
+        System.out.println("\nOriginal Grid:");
+        print2DArrayList(grid);
+        
+        AmazonAssession amazon = new AmazonAssession();
+        ArrayList<Integer> coreNodes = amazon.findCoreNodes(7, grid);
+        System.out.println("The core Nodes: " + coreNodes.toString());
         
 	}
 	
@@ -62,7 +73,7 @@ public class Main {
         ll.traverseItems();
         
         ll.setHead(new SwapNodesPairs().swapPairs(ll.getHead()));
-        System.out.println("After swap pairs: ");
+        System.out.println("\nAfter swap pairs: ");
         ll.traverseItems();
 	}
 	
@@ -75,17 +86,12 @@ public class Main {
 		grid.add(2, new ArrayList<Integer>(Arrays.asList(1, 0, 0, 1, 1)));
 		grid.add(3, new ArrayList<Integer>(Arrays.asList(1, 1, 1, 1, 1)));
 		
-		MatrixNet matrix = new MatrixNet();
 		System.out.println("Original matrix: ");
-		for(ArrayList<Integer> list : grid) {
-			for(Integer i : list) {
-				System.out.print(" " + i.intValue());
-			}
-			System.out.println();
-		}
+		print2DArrayList(grid);
 		
 		AmazonAssession aa = new AmazonAssession();
-		int parks = aa.parksNeeded2(4, 5, grid);
+//		int parks = aa.parksNeeded2(4, 5, grid); // this version is better
+		int parks = aa.parksNeeded(4, 5, grid);
 		System.out.println("We need to build " + parks + " Parks.");
 	}
 	
@@ -273,6 +279,16 @@ public class Main {
 			}
 			System.out.println(s);
 		}
+	}
+	
+	// Tool: print 2D ArrayList
+	private static void print2DArrayList(ArrayList<ArrayList<Integer>> grid) {
+	    for(ArrayList<Integer> list : grid) {
+            for(Integer i : list) {
+                System.out.print(" " + i.intValue());
+            }
+            System.out.println();
+        }
 	}
 
 }

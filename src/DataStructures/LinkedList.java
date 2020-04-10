@@ -16,6 +16,12 @@ public class LinkedList {
 		temp.setNext(new ListNode(val));
 	}
 	
+	// Add an array
+	public void addArray(int[] numbers) {
+	    for (int i = 0; i < numbers.length; i++) {
+            add(numbers[i]);
+        }
+	}
 	// Remove a value
 	public void remove(int val) {
 		ListNode tmp = head, prev = head;

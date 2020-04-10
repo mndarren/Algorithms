@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import Algorithms.AmazonAssession;
+import Algorithms.BinaryStringAddition;
 import Algorithms.CheckPalindrome;
 import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
@@ -15,6 +16,7 @@ import Algorithms.TwoSum;
 import DataStructures.BSTNode;
 import DataStructures.BinarySearchTree;
 import DataStructures.LinkedList;
+import DataStructures.ListNode;
 import DataStructures.MatrixNet;
 
 public class Main {
@@ -38,6 +40,33 @@ public class Main {
 		testSwapPairs();
 		// Test Find Core Nodes from matrix
 		testFindCoreNodes();
+		// Test Binary String Addition
+		testBinaryStringAddition();
+	}
+	
+	//Test binary string addition
+	private static void testBinaryStringAddition() {
+	    String s1 = "111";
+	    String s2 = "10001";
+	    
+	    BinaryStringAddition bsa = new BinaryStringAddition();
+	    String sum = bsa.addBinary(s1, s2);
+	    System.out.println("The sum of " + s1 + " and " + s2 + " = " + sum);
+	    
+	    // add 2 linked list numbers
+	    int[] listV1 = new int[] {4, 1, 9};
+	    int[] listV2 = new int[] {3, 2, 7, 4};
+	    
+	    LinkedList l1 = new LinkedList();
+	    l1.addArray(listV1);
+	    LinkedList l2 = new LinkedList();
+	    l2.addArray(listV2);
+	    
+	    ListNode result = bsa.addLinkedListNumbers(l1.getHead(), l2.getHead());
+	    System.out.print("The sum of the 2 linked lists = ");
+	    LinkedList ll = new LinkedList();
+	    ll.setHead(result);
+	    ll.traverseItems();
 	}
 	
 	//Test find core nodes
@@ -66,9 +95,7 @@ public class Main {
 	    // Create List for test
         LinkedList ll = new LinkedList();
         int[] numbers = new int[] {1, 3, 5, 7, 8, 7, 5, 3, 1};
-        for (int i = 0; i < numbers.length; i++) {
-            ll.add(numbers[i]);
-        }
+        ll.addArray(numbers);
         System.out.println("Before swap pairs: ");
         ll.traverseItems();
         

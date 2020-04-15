@@ -33,11 +33,11 @@ public class Sudoku {
                     if(!rowChecker.containsKey(board[i][j])) {
                         if(!listMaps.get(j).containsKey(board[i][j])) {
                             listMaps.get(j).put(board[i][j], 1);
-                        } else {
+                        } else { // if finding duplicate in the column
                             return false;
                         }
                         rowChecker.put(board[i][j], 1);
-                    } else {
+                    } else { // if finding duplicate in the row
                         return false;
                     }
                 }

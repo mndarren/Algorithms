@@ -11,6 +11,7 @@ import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
 import Algorithms.RemoveNthFromEnd;
 import Algorithms.SortingAlgorithms;
+import Algorithms.Sudoku;
 import Algorithms.SwapNodesPairs;
 import Algorithms.TwoSum;
 import DataStructures.BSTNode;
@@ -42,6 +43,39 @@ public class Main {
 		testFindCoreNodes();
 		// Test Binary String Addition
 		testBinaryStringAddition();
+		// Test Sudoku
+		testSudoku();
+	}
+	
+	// Test Sudoku
+	private static void testSudoku() {
+	    char[][] yesSudoku = new char[][] {
+	        {'1', '2', '3', '4', '5', '6', '7', '8', '9'},
+            {'2', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'3', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'4', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'5', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'6', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'7', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'8', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'9', '.', '.', '.', '.', '.', '.', '.', '.'}
+	    };
+	    
+	    char[][] noSudoku = new char[][] {
+	        {'1', '2', '3', '4', '5', '6', '7', '8', '9'},
+	        {'2', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'3', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'3', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'5', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'6', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'7', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'8', '.', '.', '.', '.', '.', '.', '.', '.'},
+	        {'9', '.', '.', '.', '.', '.', '.', '.', '.'}
+	    };
+	    
+	    Sudoku sudoku = new Sudoku();
+	    System.out.println("\nthe Yes Sudoku = " + (sudoku.isValidSudoku(yesSudoku) ? "True" : "False"));
+	    System.out.println("\nthe No Sudoku = " + (sudoku.isValidSudoku(noSudoku) ? "True" : "False"));
 	}
 	
 	//Test binary string addition

@@ -80,7 +80,7 @@ public class AmazonAssession {
      * 
      * @param n - the number of nodes in graph
      * @param grid - links represented by 1 or 0
-     * @return int[] - the primary nodes without which the whole tree will be broken
+     * @return ArrayList<Integer> - the primary nodes without which the whole tree will be broken
      */
     public ArrayList<Integer> findCoreNodes(int n, ArrayList<ArrayList<Integer>> grid) {
         ArrayList<Integer> coreNodes = new ArrayList<Integer>();
@@ -101,7 +101,7 @@ public class AmazonAssession {
             ArrayList<Integer> linkedNodes = new ArrayList<Integer>();
             int start = i==0 ? i+1 : i-1;
             collectLinkedNode(i, start, linksList, linkedNodes);
-            System.out.println("Test i = "+i + " linkedNodes = "+linkedNodes.toString());
+//            System.out.println("Test i = "+i + " linkedNodes = "+linkedNodes.toString());
             if(linkedNodes.size() < n-1) {
                 coreNodes.add(i+1);
             }

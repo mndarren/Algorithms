@@ -73,9 +73,23 @@ public class Main {
 	        {'9', '.', '.', '.', '.', '.', '.', '.', '.'}
 	    };
 	    
+	    char[][] yesSudoku1 = new char[][] {
+            {'1', '2', '3', '4', '5', '6', '7', '8', '9'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'},
+            {'.', '.', '.', '.', '.', '.', '.', '.', '.'}
+        };
+	    
 	    Sudoku sudoku = new Sudoku();
 	    System.out.println("\nthe Yes Sudoku = " + (sudoku.isValidSudoku(yesSudoku) ? "True" : "False"));
 	    System.out.println("\nthe No Sudoku = " + (sudoku.isValidSudoku(noSudoku) ? "True" : "False"));
+	    System.out.println("\nthe No Sudoku = " + (sudoku.isSolvable(yesSudoku1) ? "True" : "False"));
+	    
 	}
 	
 	//Test binary string addition

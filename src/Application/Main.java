@@ -9,6 +9,7 @@ import Algorithms.BinaryStringAddition;
 import Algorithms.CheckPalindrome;
 import Algorithms.IntToRoman;
 import Algorithms.LowestCommonAncestorBST;
+import Algorithms.RecursiveBasic;
 import Algorithms.RemoveNthFromEnd;
 import Algorithms.SortingAlgorithms;
 import Algorithms.Sudoku;
@@ -45,6 +46,19 @@ public class Main {
 		testBinaryStringAddition();
 		// Test Sudoku
 		testSudoku();
+		// Test Recursive
+		testRecursive();
+	}
+	
+	// Test Recursive methods
+	private static void testRecursive() {
+	    int n = 8;
+	    int a = 16, b = 24;
+	    RecursiveBasic recur = new RecursiveBasic();
+	    System.out.println("Fibonacci of " + n + " = " + recur.fibonacci(n));
+	    System.out.println("Factorial of " + n + " = " + recur.factorial(n));
+	    System.out.println("Factorial of " + n + " = " + recur.factorialTail(n));
+	    System.out.println("The GCD of " + a + " and " + b + " = " + recur.gcd(b, a));
 	}
 	
 	// Test Sudoku

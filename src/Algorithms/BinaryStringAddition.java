@@ -58,4 +58,18 @@ public class BinaryStringAddition {
         if(carry > 0) curr.setNext(new ListNode(carry));
         return dummy.getNext();
     }
+    
+    /**
+     * Binary AND for range [m, n]
+     * @param m
+     * @param n
+     * @return
+     */
+    public int rangeBitwiseAnd(int m, int n) {
+        int sum = m;
+        for(int i = m+1; i < n; i++) {
+            sum &= i;
+        }
+        return sum;
+    }
 }

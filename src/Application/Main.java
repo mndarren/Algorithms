@@ -129,6 +129,10 @@ public class Main {
 	    LinkedList ll = new LinkedList();
 	    ll.setHead(result);
 	    ll.traverseItems();
+	    
+	    // test range binary AND
+	    int m = 4, n = 6;
+	    System.out.println("\nThe sum of the range of [" + m + " ,"+ n + "] = " + bsa.rangeBitwiseAnd(m, n));
 	}
 	
 	//Test find core nodes
